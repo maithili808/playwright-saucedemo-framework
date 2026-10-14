@@ -1,0 +1,24 @@
+{
+  "name": "playwright-saucedemo-framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "test": "playwright test",
+  "test:headed": "playwright test --headed",
+  "test:ui": "playwright test --ui",
+  "test:dev": "cross-env ENV=dev playwright test",
+  "test:qa": "cross-env ENV=qa playwright test",
+  "test:stage": "cross-env ENV=stage playwright test",
+  "test:prod": "cross-env ENV=prod playwright test",
+  "report": "playwright show-report"
+},
+  "keywords": [],
+  "author": "Maithili",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "cross-env": "^10.1.0"
+  }
+}
