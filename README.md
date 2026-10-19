@@ -31,6 +31,8 @@ UI and API test automation framework built with **Playwright** and **TypeScript*
 
 UI tests run on 3 browsers (25 x 3 = 75 runs) and API tests run once (5), which gives 80 test runs.
 
+![Test report](docs/report.png)
+
 ## Project structure
 ```
 src/
