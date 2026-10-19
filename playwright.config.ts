@@ -9,15 +9,21 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [['list'], ['html', { open: 'never' }]],
 
+  // performance_glitch_user is slow, so give assertions more time
+  expect: { timeout: 10_000 },
+
   use: {
     baseURL: env.baseURL,
-    testIdAttribute: 'data-test',      // SauceDemo uses data-test, not data-testid
+    testIdAttribute: 'data-test',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
 
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'chromium', testIgnore: '**/api/**', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox',  testIgnore: '**/api/**', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit',   testIgnore: '**/api/**', use: { ...devices['Desktop Safari'] } },
+    { name: 'api',      testMatch: '**/api/**/*.spec.ts' },
   ],
 });
